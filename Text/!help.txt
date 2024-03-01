@@ -1,0 +1,6 @@
+Config Guide:
+
+Line #: | Contents:
+-------------------
+0       | Version #
+1       | User
