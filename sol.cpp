@@ -37,10 +37,11 @@ string config(int line) {
 
 int main() {
 
-    string check = config(0);
+    string version = config(0);
+    string name = config(1);
+    string welcome = config(2);
 
-    read("welcome");
-    cout << check;
+    cout << welcome << name <<"\nVersion: " << version << "\n---\n\n";
 
     return 0;
 

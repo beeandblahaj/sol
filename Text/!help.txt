@@ -3,4 +3,7 @@ Config Guide:
 Line #: | Contents:
 -------------------
 0       | Version #
-1       | User
+1       | Nickname
+2       | Welcome Message*
+
+*Your nickname will always be added onto the welcome message, if possible.
