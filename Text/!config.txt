@@ -1,6 +1,6 @@
-1.0.3
+1.0.4
 Andy
 Welcome to the Sol Terminal, 
 write
-library
+read
 yes

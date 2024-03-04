@@ -8,9 +8,7 @@ void reader() {
     string name;
     string str;
 
-    cout << "Entering reader mode.\n---\n\n";
-
-    cout << "\n";
+    cout << "Entering reader mode.\n---\n";
 
     ifstream contents("Entries/!contents.txt");
 
@@ -98,6 +96,7 @@ string config(int line) {
 
 int main() {
 
+    // Config variables
     string version = config(0);
     string name = config(1);
     string welcome = config(2);
@@ -105,14 +104,15 @@ int main() {
     string read = config(4);
     string op;
     string contString = config(5);
+
     bool write = false;
     bool cont = true;
 
-    cout << welcome << name <<"\nVersion: " << version << "\n---\n\n";
+    cout << welcome << name <<"\nVersion: " << version << "\n---\n";
 
     while (cont) {
 
-        cout << "What would you like to do today? ";
+        cout << "\nWhat would you like to do today? ";
         cin >> op;
 
         // Optimize this, if possible
@@ -120,7 +120,9 @@ int main() {
             writer();
         else if (op == read)
             reader();
-
+        else
+            cout << "Sorry, " + name + ", this command doesn't seem to exist.";
+        
         string contResponse;
         cout << "\n---\nContinue? ";
         cin >> contResponse;
