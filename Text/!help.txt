@@ -5,5 +5,7 @@ Line #: | Contents:
 0       | Version #
 1       | Nickname
 2       | Welcome Message*
+3       | Author mode key**
 
 *Your nickname will always be added onto the welcome message, if possible.
+**Must be single-word
