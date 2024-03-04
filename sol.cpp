@@ -3,10 +3,29 @@
 #include <string.h>
 using namespace std;
 
-void reader(string folder, string name) {
+void reader() {
 
+    string name;
     string str;
-    ifstream file(folder + "/" + name + ".txt");
+
+    cout << "Entering reader mode.\n---\n\n";
+
+    cout << "\n";
+
+    ifstream contents("Entries/!contents.txt");
+
+    while (getline (contents, str)) {
+        cout << str + "\n";
+    }
+
+    contents.close();
+
+    cout << "\nWhat story would you like to read? ";
+    cin >> name;
+
+    ifstream file("Entries/" + name + ".txt");
+
+    cout << "\nEntry Contents:\n\n";
 
     while (getline (file, str)) {
         cout << str + "\n";
@@ -18,13 +37,10 @@ void reader(string folder, string name) {
 
 void writer() {
 
-    string folder;
     string name;
     string text;
 
     cout << "Entering author mode.\n---\n\n";
-    cout << "Where would you like to add this new entry? ";
-    cin >> folder;
 
     cout << "What should the file be called? ";
     cin >> name;
@@ -33,10 +49,26 @@ void writer() {
     cin.ignore();
     std::getline(std::cin, text);
 
-    ofstream file(folder + "/" + name + ".txt");
+    ofstream file("Entries/" + name + ".txt");
     file << text;
 
-    cout << "Writing complete.";
+    cout << "Writing complete.\n";
+
+    ifstream contents("Entries/!contents.txt");
+    if (!contents.is_open()) {
+
+        ofstream contents("Entries/!contents.txt");
+        contents << "Table of Contents:\n---\n\n";
+        contents.close();
+
+    }
+    
+    ofstream newContents("Entries/!contents.txt", ofstream::app);
+    string line = name + "\n";
+    newContents << line;
+
+    newContents.close();
+    contents.close();    
     file.close();
 
 }
@@ -69,32 +101,31 @@ int main() {
     string version = config(0);
     string name = config(1);
     string welcome = config(2);
-    string phrase = config(3);
+    string author = config(3);
+    string read = config(4);
     string op;
+    string contString = config(5);
     bool write = false;
+    bool cont = true;
 
     cout << welcome << name <<"\nVersion: " << version << "\n---\n\n";
 
-    cout << "What would you like to do today? ";
-    cin >> op;
-    /*
-    switch (op) {
+    while (cont) {
 
-        case phrase:
+        cout << "What would you like to do today? ";
+        cin >> op;
 
+        // Optimize this, if possible
+        if (op == author)
+            writer();
+        else if (op == read)
+            reader();
 
-    }
-    */
-    if (op == phrase) {
+        string contResponse;
+        cout << "\n---\nContinue? ";
+        cin >> contResponse;
+        cont = contResponse == contString;
 
-        write = true;
-
-    }
-
-    cout << "\n\n";
-
-    if (write) {
-        writer();
     }
 
     return 0;
