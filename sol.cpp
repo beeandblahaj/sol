@@ -102,9 +102,9 @@ int main() {
     string welcome = config(2);
     string author = config(3);
     string read = config(4);
-    string op;
     string contString = config(5);
-
+    string op;
+    
     bool write = false;
     bool cont = true;
 
