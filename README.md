@@ -1,5 +1,5 @@
 # Welcome to the Sol Terminal!
-An interactive reading database made in C++, featuring original stories, online works (AO3 or Wanderer's Library), and more.
+A terminal-based reader/writer made in C++.
 
 ## Customization Options:
 
