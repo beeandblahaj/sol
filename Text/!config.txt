@@ -1,5 +1,5 @@
 1.0.4
-Andy
+User
 Welcome to the Sol Terminal, 
 write
 read
